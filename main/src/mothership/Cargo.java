@@ -5,9 +5,10 @@ public class Cargo extends SpaceShip{
     private static int cargoLimit;
     private static int cargo;
 
-    public Cargo(int velocidad_x, int velocidad_y, int coordenada_x, int coordenada_y, int direccion_x, int direccion_y) {
-        super(velocidad_x, velocidad_y, coordenada_x, coordenada_y, direccion_x, direccion_y);
+    public Cargo(String nombre, String matriculaGalactica, int aceleracion, int velocidad_x, int velocidad_y, int coordenada_x, int coordenada_y, int direccion_x, int direccion_y) {
+        super(nombre, matriculaGalactica, aceleracion, velocidad_x, velocidad_y, coordenada_x, coordenada_y, direccion_x, direccion_y);
     }
+
 
     public static int getCargoLimit() {
         return cargoLimit;
