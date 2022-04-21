@@ -1,4 +1,5 @@
 import com.sun.security.jgss.GSSUtil;
+import mothership.Cargo;
 import mothership.SpaceShip;
 
 import java.util.Scanner;
@@ -47,7 +48,17 @@ public class Main {
                     System.out.println("\033[0;34m█INFO: 'Cada contenedor tiene 10 espacios█" + "\n" + "█Maxima carga 10 contenedores            █\033[0m\n");
                     System.out.println("Inserte la cantidad de contenedores a añadir: ");
                     int cargaUtil = scanner.nextInt();
-                    SpaceShip.cargo(cargaUtil);
+                    Cargo.cargo(cargaUtil);
+                    break;
+                case "5":
+                    System.out.println("Indica la cantidad a cargar, maximo disponible: " + Cargo.getCargoLimit());
+                    int cargoLoaded = scanner.nextInt();
+                    Cargo.load(cargoLoaded);
+                    break;
+                case "6":
+                    System.out.println("Indica la cantidad a descargar, carga almacenada: " + Cargo.getCargo());
+                    int cargoUnload = scanner.nextInt();
+                    Cargo.unload(cargoUnload);
                     break;
                 default:
                     System.out.println("No se ha elegido ninguna opcion viable");
