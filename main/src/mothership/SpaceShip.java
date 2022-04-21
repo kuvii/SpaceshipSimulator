@@ -1,8 +1,5 @@
 package mothership;
 
-
-import com.sun.tools.javac.Main;
-
 public class SpaceShip {
     private static String nombre;
     private static String matriculaGalactica;
@@ -15,13 +12,16 @@ public class SpaceShip {
     private static int direccion_y;
 
 
-    public SpaceShip(int velocidad_x, int velocidad_y, int coordenada_x, int coordenada_y, int direccion_x, int direccion_y) {
-        this.velocidad_x = velocidad_x;
-        this.velocidad_y = velocidad_y;
-        this.coordenada_x = coordenada_x;
-        this.coordenada_y = coordenada_y;
-        this.direccion_x = direccion_x;
-        this.direccion_y = direccion_y;
+    public SpaceShip( String nombre, String matriculaGalactica, int aceleracion, int velocidad_x, int velocidad_y, int coordenada_x, int coordenada_y, int direccion_x, int direccion_y) {
+        SpaceShip.nombre = nombre;
+        SpaceShip.matriculaGalactica = matriculaGalactica;
+        SpaceShip.aceleracion = aceleracion;
+        SpaceShip.velocidad_x = velocidad_x;
+        SpaceShip.velocidad_y = velocidad_y;
+        SpaceShip.coordenada_x = coordenada_x;
+        SpaceShip.coordenada_y = coordenada_y;
+        SpaceShip.direccion_x = direccion_x;
+        SpaceShip.direccion_y = direccion_y;
     }
 
     public static String getNombre() {
@@ -112,8 +112,22 @@ public class SpaceShip {
         setVelocidad_x(0);
         System.out.println("Velocidad X: " + getVelocidad_x() + "\n" + "Coordenada X: " + getCoordenada_x());
     }
-
-
+    String falcon =
+            "|             ▄▒▒▒▒▒▒▒▒▒▒▒▄" + "\n" +
+            "|           ▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▄" + "\n" +
+            "|         ▄▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▄" + "\n" +
+            "|       ▄▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▄" + "\n" +
+            "|      ]▒▒██▓▓▓▓████▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▄▄" + "\n" +
+            "|      ]▒▒█████████▓▓▓▓▓╣╣╣╢╢╢╢▒▒▒▒▒▒▒▒▒▄▄▄" + "\n" +
+            "|        ▀████▓╣╣╫╫╫╫╫╫╫╫╫╢█████████▓▓▓▒▒▒▒▒▒▄▄▄▄▄" + "\n" +
+            "|          ▓█▓███████▓▓▓▓▓▓╣█████████▓▓▓▓▓▓█╢     ▓▓▒" + "\n" +
+            "|        ▄███▓▓╣╣╫╫╫╫╫╫╫╫╫╢█████████▓▒▒▒▒▒▒▒▒▀▀▀▀▀" + "\n" +
+            "|      ]▒███████████████╣╣╣╢╢╢╢▒▒▒▒▒▒▒▒▒▀▀▀" + "\n" +
+            "|      ]▒█████████▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▀▀" + "\n" +
+            "|       ▀▒█▓█████▓▓███████▓▒▒▒▓▒▀" + "\n" +
+            "|         ▀▒█████▓▓▓▒▒▒▒▒▒▒▒▒▒▀" + "\n" +
+            "|           ▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀" + "\n" +
+            "|             ▀▒▒▒▒▒▒▒▒▒▒▒▀" + "\n";
     @Override
     public String toString() {
         String valorPrint = "*-------------" + getNombre() + "-------------*" + "\n";
@@ -123,21 +137,7 @@ public class SpaceShip {
         valorPrint += "Aceleración Actual: " + getAceleracion() + "\n";
         valorPrint += "Posición Actual: " + getCoordenada_x() + " X " + getCoordenada_y() + " Y " + "\n";
         valorPrint += "Dirección Actual: " + getDireccion_x() + " X " + getDireccion_y() + " Y " + "\n";
-        valorPrint += "|             ▄▒▒▒▒▒▒▒▒▒▒▒▄" + "\n";
-        valorPrint += "|           ▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▄" + "\n";
-        valorPrint += "|         ▄▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▄" + "\n";
-        valorPrint += "|       ▄▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▄" + "\n";
-        valorPrint += "|      ]▒▒██▓▓▓▓████▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▄▄" + "\n";
-        valorPrint += "|      ]▒▒█████████▓▓▓▓▓╣╣╣╢╢╢╢▒▒▒▒▒▒▒▒▒▄▄▄" + "\n";
-        valorPrint += "|        ▀████▓╣╣╫╫╫╫╫╫╫╫╫╢█████████▓▓▓▒▒▒▒▒▒▄▄▄▄▄" + "\n";
-        valorPrint += "|          ▓█▓███████▓▓▓▓▓▓╣█████████▓▓▓▓▓▓█╢     ▓▓▒" + "\n";
-        valorPrint += "|        ▄███▓▓╣╣╫╫╫╫╫╫╫╫╫╢█████████▓▒▒▒▒▒▒▒▒▀▀▀▀▀" + "\n";
-        valorPrint += "|      ]▒███████████████╣╣╣╢╢╢╢▒▒▒▒▒▒▒▒▒▀▀▀" + "\n";
-        valorPrint += "|      ]▒█████████▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▀▀" + "\n";
-        valorPrint += "|       ▀▒█▓█████▓▓███████▓▒▒▒▓▒▀" + "\n";
-        valorPrint += "|         ▀▒█████▓▓▓▒▒▒▒▒▒▒▒▒▒▀" + "\n";
-        valorPrint += "|           ▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀" + "\n";
-        valorPrint += "|             ▀▒▒▒▒▒▒▒▒▒▒▒▀" + "\n";
+        valorPrint += falcon;
 
         return valorPrint;
     }
