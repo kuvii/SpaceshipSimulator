@@ -108,6 +108,11 @@ public class SpaceShip {
         System.out.println("Velocidad X: " + getVelocidad_x() + "\n" + "Coordenada X: " + getCoordenada_x());
     }
 
+    public static void emergencyStop(){
+        setVelocidad_x(0);
+        System.out.println("Velocidad X: " + getVelocidad_x() + "\n" + "Coordenada X: " + getCoordenada_x());
+    }
+
 
     @Override
     public String toString() {
