@@ -1,3 +1,4 @@
+import com.sun.security.jgss.GSSUtil;
 import mothership.SpaceShip;
 
 import java.util.Scanner;
@@ -27,6 +28,7 @@ public class Main {
         System.out.println("--------------");
         System.out.println("[1] SpeedUP");
         System.out.println("[2] Brake");
+        System.out.println("[3] Emergency Stop");
         System.out.println("--------------");
         System.out.print("Esperando órdenes: ");
         command = scanner.next();
@@ -35,6 +37,10 @@ public class Main {
                     SpaceShip.speedUp();
                     break;
                 case "2":
+                    SpaceShip.brake();
+                    break;
+                case "3":
+                    SpaceShip.emergencyStop();
                     break;
                 default:
                     System.out.println("No se ha elegido ninguna opcion viable");
