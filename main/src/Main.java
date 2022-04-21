@@ -29,6 +29,7 @@ public class Main {
         System.out.println("[1] SpeedUP");
         System.out.println("[2] Brake");
         System.out.println("[3] Emergency Stop");
+        System.out.println("[4] Cargo");
         System.out.println("--------------");
         System.out.print("Esperando órdenes: ");
         command = scanner.next();
@@ -41,6 +42,12 @@ public class Main {
                     break;
                 case "3":
                     SpaceShip.emergencyStop();
+                    break;
+                case "4":
+                    System.out.println("\033[0;34m█INFO: 'Cada contenedor tiene 10 espacios█" + "\n" + "█Maxima carga 10 contenedores            █\033[0m\n");
+                    System.out.println("Inserte la cantidad de contenedores a añadir: ");
+                    int cargaUtil = scanner.nextInt();
+                    SpaceShip.cargo(cargaUtil);
                     break;
                 default:
                     System.out.println("No se ha elegido ninguna opcion viable");

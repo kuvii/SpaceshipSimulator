@@ -13,6 +13,7 @@ public class SpaceShip {
     private static int coordenada_y;
     private static int direccion_x;
     private static int direccion_y;
+    private static int cargoLimit;
 
 
     public SpaceShip(int velocidad_x, int velocidad_y, int coordenada_x, int coordenada_y, int direccion_x, int direccion_y) {
@@ -22,6 +23,12 @@ public class SpaceShip {
         this.coordenada_y = coordenada_y;
         this.direccion_x = direccion_x;
         this.direccion_y = direccion_y;
+    }
+
+    public SpaceShip(String nombre, String matriculaGalactica, int cargoLimit) {
+        this.nombre = nombre;
+        this.matriculaGalactica = matriculaGalactica;
+        this.cargoLimit = cargoLimit;
     }
 
     public static String getNombre() {
@@ -96,6 +103,14 @@ public class SpaceShip {
         SpaceShip.direccion_y = direccion_y;
     }
 
+    public static int getCargoLimit() {
+        return cargoLimit;
+    }
+
+    public static void setCargoLimit(int cargo) {
+        SpaceShip.cargoLimit = cargoLimit;
+    }
+
     public static void speedUp() {
         setVelocidad_x(velocidad_x + aceleracion);
         setCoordenada_x(getCoordenada_x() + getVelocidad_x());
@@ -113,7 +128,16 @@ public class SpaceShip {
         System.out.println("Velocidad X: " + getVelocidad_x() + "\n" + "Coordenada X: " + getCoordenada_x());
     }
 
-
+    public static void cargo(int payload){
+        setCargoLimit(payload * 10);
+        if (cargoLimit > 100){
+            System.out.println("Carga maxima alcanzada");
+            setCargoLimit(100);
+        } else if (cargoLimit < 0){
+            System.out.println("Imposible de procesar");
+            setCargoLimit(0);
+        }
+    }
     @Override
     public String toString() {
         String valorPrint = "*-------------" + getNombre() + "-------------*" + "\n";
