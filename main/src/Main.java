@@ -35,6 +35,7 @@ public class Main {
                     SpaceShip.speedUp();
                     break;
                 case "2":
+                    SpaceShip.brake();
                     break;
                 default:
                     System.out.println("No se ha elegido ninguna opcion viable");

@@ -1,6 +1,7 @@
 package mothership;
 
 
+import com.sun.tools.javac.Main;
 
 public class SpaceShip {
     private static String nombre;
@@ -99,10 +100,12 @@ public class SpaceShip {
         setVelocidad_x(velocidad_x + aceleracion);
         setCoordenada_x(getCoordenada_x() + getVelocidad_x());
         System.out.println("Velocidad X: " + getVelocidad_x() + "\n" + "Coordenada X: " + getCoordenada_x());
-        if (velocidad_x > 1000){
-            System.out.println("PM Zeus: Warp Detected, stoping system");
-            System.exit(0);
-        }
+    }
+
+    public static void brake(){
+        setVelocidad_x(velocidad_x - aceleracion);
+        setCoordenada_x(getCoordenada_x() - getVelocidad_x());
+        System.out.println("Velocidad X: " + getVelocidad_x() + "\n" + "Coordenada X: " + getCoordenada_x());
     }
 
 
